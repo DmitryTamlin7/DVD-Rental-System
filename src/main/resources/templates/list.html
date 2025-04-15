@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>DVDs List</title>
+</head>
+<body>
+<h1>DVDs List</h1>
+<table>
+  <thead>
+  <tr>
+    <th>Title</th>
+    <th>Genre</th>
+    <th>Year</th>
+    <th>Actions</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr th:each="dvd : ${dvds}">
+    <td th:text="${dvd.title}"></td>
+    <td th:text="${dvd.genre}"></td>
+    <td th:text="${dvd.year}"></td>
+    <td>
+      <a th:href="@{/dvds/{id}/edit(id=${dvd.id})}">Edit</a> |
+      <a th:href="@{/dvds/{id}/delete(id=${dvd.id})}">Delete</a>
+    </td>
+  </tr>
+  </tbody>
+</table>
+<br/>
+<a href="/dvds/add">Add DVD</a>
+</body>
+</html>
