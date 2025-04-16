@@ -1,11 +1,17 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
+<link rel="stylesheet" type="text/css" href="/styles.css">
+
 <head>
   <meta charset="UTF-8">
   <title>Rentals List</title>
 </head>
 <body>
 <h1>Rentals</h1>
+
+
+<a href="/home">Back to Dashboard</a>
+
 <table>
   <thead>
   <tr>
@@ -25,11 +31,16 @@
     <td th:text="${rental.rentalDate}"></td>
     <td th:text="${rental.returnDate}"></td>
     <td>
+      <!-- Ссылки для редактирования и удаления аренды -->
+      <a th:href="@{/rentals/edit/{id}(id=${rental.id})}">Edit</a> |
       <a th:href="@{/rentals/delete/{id}(id=${rental.id})}">Delete</a>
     </td>
   </tr>
   </tbody>
 </table>
+
 <a href="/rentals/add">Add New Rental</a>
+
+
 </body>
 </html>
