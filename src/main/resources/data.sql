@@ -1,3 +1,30 @@
+DROP TABLE IF EXISTS rentals;
+DROP TABLE IF EXISTS dvds;
+DROP TABLE IF EXISTS customers;
+
+
+CREATE TABLE customers (
+    id SERIAL PRIMARY KEY,
+    name VARCHAR(100),
+    email VARCHAR(100),
+    phone VARCHAR(15)
+);
+
+CREATE TABLE dvds (
+    id SERIAL PRIMARY KEY,
+    title VARCHAR(255),
+    genre VARCHAR(100),
+    release_year INT
+);
+
+CREATE TABLE rentals (
+    id SERIAL PRIMARY KEY,
+    customer_id INT REFERENCES customers(id),
+    dvd_id INT REFERENCES dvds(id),
+    rental_date DATE,
+    return_date DATE
+);
+
 INSERT INTO customers (name, email, phone) VALUES
 ('Иван Иванов', 'ivan1@example.com', '+71234567890'),
 ('Мария Петрова', 'maria1@example.com', '+79876543210'),

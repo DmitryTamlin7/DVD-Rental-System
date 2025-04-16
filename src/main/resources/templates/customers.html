@@ -21,9 +21,15 @@
         <td th:text="${customer.name}"></td>
         <td th:text="${customer.email}"></td>
         <td th:text="${customer.phone}"></td>
+        <td>
+            <form th:action="@{'/customers/delete/' + ${customer.id}}" method="post">
+            <button type="submit">Удалить</button>
+        </form>
+
+        </td>
     </tr>
     </tbody>
 </table>
-<a href="/add-customer">Add New Customer</a>
+<a href="/customers/add">Add New Customer</a>
 </body>
 </html>
