@@ -57,8 +57,8 @@ Visit http://localhost:8080 🌍
 ##  To Do
 
 - ✅ Backend: DVD & Customer logic
--    Frontend for DVD and Customer management
--   Rental logic and return handling
+- ✅ Frontend for DVD and Customer management
+- ✅ Rental logic and return handling
 -   Query optimization & index analysis
 -   Finalize README screenshots
 
