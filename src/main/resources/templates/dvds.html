@@ -2,32 +2,34 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
   <meta charset="UTF-8">
-  <title>DVDs List</title>
+  <title>DVD List</title>
 </head>
 <body>
-<h1>DVDs List</h1>
+<h1>DVD List</h1>
 <table>
   <thead>
   <tr>
+    <th>ID</th>
     <th>Title</th>
     <th>Genre</th>
-    <th>Year</th>
+    <th>Release Year</th>
     <th>Actions</th>
   </tr>
   </thead>
   <tbody>
   <tr th:each="dvd : ${dvds}">
+    <td th:text="${dvd.id}"></td>
     <td th:text="${dvd.title}"></td>
     <td th:text="${dvd.genre}"></td>
-    <td th:text="${dvd.year}"></td>
+    <td th:text="${dvd.releaseYear}"></td>
     <td>
-      <a th:href="@{/dvds/{id}/edit(id=${dvd.id})}">Edit</a> |
-      <a th:href="@{/dvds/{id}/delete(id=${dvd.id})}">Delete</a>
+      <form th:action="@{'/dvds/delete/' + ${dvd.id}}" method="post">
+        <button type="submit">Удалить</button>
+      </form>
     </td>
   </tr>
   </tbody>
 </table>
-<br/>
-<a href="/dvds/add">Add DVD</a>
+<a href="/dvds/add">Добавить DVD</a>
 </body>
 </html>

@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Add DVD</title>
+</head>
+<body>
+<h1>Add New DVD</h1>
+<form th:action="@{/dvds/save}" th:object="${dvd}" method="post">
+  <label>Title: <input type="text" th:field="*{title}" /></label><br/>
+  <label>Genre: <input type="text" th:field="*{genre}" /></label><br/>
+  <label>Release Year: <input type="number" th:field="*{releaseYear}" /></label><br/>
+  <button type="submit">Save</button>
+</form>
+<a href="/dvds">Back to List</a>
+</body>
+</html>

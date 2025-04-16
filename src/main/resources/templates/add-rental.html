@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Rental</title>
+</head>
+<body>
+<h1>Add New Rental</h1>
+
+<form th:action="@{/rentals/add}" th:object="${rental}" method="post">
+    <label for="customer">Customer:</label>
+    <select id="customer" th:field="*{customer}">
+        <option th:each="customer : ${customers}"
+                th:value="${customer.id}"
+                th:text="${customer.name}"></option>
+    </select><br>
+
+    <label for="dvd">DVD:</label>
+    <select id="dvd" th:field="*{dvd}">
+        <option th:each="dvd : ${dvds}"
+                th:value="${dvd.id}"
+                th:text="${dvd.title}"></option>
+    </select><br>
+
+    <label for="rentalDate">Rental Date:</label>
+    <input type="date" id="rentalDate" th:field="*{rentalDate}"/><br>
+
+    <label for="returnDate">Return Date:</label>
+    <input type="date" id="returnDate" th:field="*{returnDate}"/><br>
+
+    <button type="submit">Add Rental</button>
+</form>
+
+<a href="/rentals">Back to Rentals List</a>
+</body>
+</html>

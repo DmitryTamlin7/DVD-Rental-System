@@ -23,7 +23,7 @@ public class Rental {
 
     @ManyToOne
     @JoinColumn(name = "dvd_id")
-    private Dvd dvd;
+    private DVD dvd;
 
 
     public long getId() {
@@ -58,11 +58,11 @@ public class Rental {
         this.customer = customer;
     }
 
-    public Dvd getDvd() {
+    public DVD getDvd() {
         return dvd;
     }
 
-    public void setDvd(Dvd dvd) {
+    public void setDvd(DVD dvd) {
         this.dvd = dvd;
     }
 }

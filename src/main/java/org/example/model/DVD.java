@@ -4,7 +4,7 @@ import jakarta.persistence.*;
 
 @Entity
 @Table(name = "dvds")
-public class Dvd {
+public class DVD {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
