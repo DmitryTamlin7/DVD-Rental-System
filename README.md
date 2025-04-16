@@ -58,7 +58,7 @@ cd DVD-Rental-System
 # Run the application
 ./gradlew bootRun
 ```
-Visit http://localhost:8080.home 🌍
+Visit http://localhost:8080/home 🌍
 
 
 
