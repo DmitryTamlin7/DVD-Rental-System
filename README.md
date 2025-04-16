@@ -28,14 +28,22 @@ Welcome to the **DVD Rental System** — a full-stack Java application that help
 
 ## 📸 Screenshots
 
-_(coming soon...)_
+![Screenshot](src/main/resources/images/homepages.png)
+
+![Screenshot](src/main/resources/images/Customers.png)
+
+![Screenshot](src/main/resources/images/AddCustomers.png)
+
+![Screenshot](src/main/resources/images/DVDlist.png)
+
+![Screenshot](src/main/resources/images/AddDVD.png)
+
+![Screenshot](src/main/resources/images/rentals.png)
+
+![Screenshot](src/main/resources/images/editrental.png)
+
 
 ---
-
-## 📂 Project Structure
-
-src/ ├── main/ │ ├── java/ │ │ └── org.example/ │ │ ├── controller/ # Web controllers │ │ ├── model/ # JPA entities │ │ └── repository/ # Repositories (Spring Data JPA) │ └── resources/ │ ├── templates/ # HTML templates (Thymeleaf) │ └── application.properties └── test/ # Tests (if added)
-
 
 
 ---
@@ -50,7 +58,7 @@ cd DVD-Rental-System
 # Run the application
 ./gradlew bootRun
 ```
-Visit http://localhost:8080 🌍
+Visit http://localhost:8080.home 🌍
 
 
 
@@ -64,7 +72,7 @@ Visit http://localhost:8080 🌍
 
 MIT License
 
-Copyright (c) 2025 YourName
+Copyright (c) 2025 Tamlin7
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
