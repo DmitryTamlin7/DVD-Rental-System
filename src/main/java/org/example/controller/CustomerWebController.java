@@ -24,7 +24,7 @@ public class CustomerWebController {
     public String addCustomerForm(Model model) {
         model.addAttribute("customer", new Customer());
         return "addCustomer";
-    }
+    } // add
 
     @PostMapping("/save")
     public String saveCustomer(@ModelAttribute Customer customer) {
