@@ -24,11 +24,6 @@ public class RentalWebController {
     @Autowired
     private DvdRepository dvdRepository;
 
-    @GetMapping("/dashboard")
-    public String dashboard() {
-        return "dashboard"; // dashboard.html
-    }
-
     @GetMapping
     public String listRentals(Model model) {
         model.addAttribute("rentals", rentalRepository.findAll());
@@ -51,11 +46,12 @@ public class RentalWebController {
 
     @GetMapping("/edit/{id}")
     public String showEditForm(@PathVariable("id") Long id, Model model) {
-        Rental rental = rentalRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("Invalid rental Id: " + id));
+        Rental rental = rentalRepository.findById(id)
+                .orElseThrow(() -> new IllegalArgumentException("Invalid rental Id: " + id));
         model.addAttribute("rental", rental);
         model.addAttribute("customers", customerRepository.findAll());
         model.addAttribute("dvds", dvdRepository.findAll());
-        return "edit-rental";
+        return "edit-rental"; // edit-rental.html
     }
 
     @PostMapping("/edit/{id}")
@@ -71,10 +67,8 @@ public class RentalWebController {
         return "redirect:/rentals";
     }
 
-    @RequestMapping("/dashboard")
+    @GetMapping("/dashboard")
     public String dashboardRedirect() {
         return "redirect:/home"; // Перенаправление на /home
     }
-
-
 }
