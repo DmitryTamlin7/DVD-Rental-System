@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Поиск</title>
+  <style>
+    body {
+        font-family: Arial, sans-serif;
+        padding: 30px;
+    }
+
+    form {
+        margin-bottom: 20px;
+    }
+
+    input[type="text"] {
+        padding: 5px;
+        width: 300px;
+    }
+
+    input[type="submit"] {
+        padding: 5px 15px;
+    }
+
+    h2 {
+        margin-top: 40px;
+    }
+
+    table {
+        width: 60%;
+        border-collapse: collapse;
+        margin-top: 10px;
+    }
+
+    th, td {
+        border: 1px solid #ddd;
+        padding: 8px;
+    }
+
+    th {
+        background-color: #f2f2f2;
+    }
+  </style>
+</head>
+<body>
+<h1>Поиск</h1>
+<a href="/home">Back to Dashboard</a>
+<!-- Поиск клиентов -->
+<form th:action="@{/search/customers}" method="get">
+  <label for="name">Имя клиента:</label>
+  <input type="text" id="name" name="name" required>
+  <input type="submit" value="Найти клиента">
+</form>
+
+<!-- Результаты поиска клиентов -->
+<div th:if="${customers}">
+  <h2>Найденные клиенты</h2>
+  <table>
+    <tr>
+      <th>ID</th>
+      <th>Имя</th>
+      <th>Email</th>
+      <th>Телефон</th>
+    </tr>
+    <tr th:each="customer : ${customers}">
+      <td th:text="${customer.id}"></td>
+      <td th:text="${customer.name}"></td>
+      <td th:text="${customer.email}"></td>
+      <td th:text="${customer.phone}"></td>
+    </tr>
+  </table>
+</div>
+
+<!-- Поиск DVD -->
+<form th:action="@{/search/dvds}" method="get">
+  <label for="title">Название DVD:</label>
+  <input type="text" id="title" name="title" required>
+  <input type="submit" value="Найти DVD">
+</form>
+
+<!-- Результаты поиска DVD -->
+<div th:if="${dvds}">
+  <h2>Найденные DVD</h2>
+  <table>
+    <tr>
+      <th>ID</th>
+      <th>Название</th>
+      <th>Жанр</th>
+      <th>Год выпуска</th>
+    </tr>
+    <tr th:each="dvd : ${dvds}">
+      <td th:text="${dvd.id}"></td>
+      <td th:text="${dvd.title}"></td>
+      <td th:text="${dvd.genre}"></td>
+      <td th:text="${dvd.releaseYear}"></td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

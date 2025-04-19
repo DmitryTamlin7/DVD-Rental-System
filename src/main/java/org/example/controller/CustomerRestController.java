@@ -23,4 +23,9 @@ public class CustomerRestController {
     public Customer createCustomer(@RequestBody Customer customer) {
         return customerRepository.save(customer);
     }
+
+    @GetMapping("/search")
+    public List<Customer> searchByName(@RequestParam String name) {
+        return customerRepository.findByName(name);
+    }
 }

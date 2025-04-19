@@ -7,6 +7,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @Controller
 @RequestMapping("/dvds")
 public class DvdWebController {
@@ -36,5 +38,10 @@ public class DvdWebController {
     public String deleteDvd(@PathVariable Long id) {
         dvdRepository.deleteById(id);
         return "redirect:/dvds";
+    }
+
+    @GetMapping("/search")
+    public List<DVD> searchByTitle(@RequestParam String title) {
+        return dvdRepository.findByTitle(title);
     }
 }

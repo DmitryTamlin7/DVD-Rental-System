@@ -7,6 +7,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @Controller
 @RequestMapping("/customers")
 public class CustomerWebController {
@@ -41,6 +43,11 @@ public class CustomerWebController {
             e.printStackTrace();
         }
         return "redirect:/customers";
+    }
+
+    @GetMapping("/search")
+    public List<Customer> searchByName(@RequestParam String name) {
+        return customerRepository.findByName(name);
     }
 
 

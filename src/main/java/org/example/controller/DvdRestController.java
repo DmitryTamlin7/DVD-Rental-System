@@ -49,4 +49,9 @@ public class DvdRestController {
     public void deleteDvd(@PathVariable Long id) {
         dvdRepository.deleteById(id);
     }
+
+    @GetMapping("/search")
+    public List<DVD> searchByTitle(@RequestParam String title) {
+        return dvdRepository.findByTitle(title);
+    }
 }
